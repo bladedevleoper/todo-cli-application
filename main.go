@@ -97,7 +97,7 @@ func callAddTask() {
 	text = strings.Replace(text, "\r\n", "", -1)
 	for {
 		if text != "" {
-			database.DbConnect(text)
+			database.InsertIntoTodo(text)
 			fmt.Println("Item added")
 			callAddTask()
 		} else {
@@ -136,7 +136,8 @@ func handleChosenSelection(selected string) {
 //will set a reminder against a task
 func callAddReminder() {
 	//display top 10 recent tasks
-	//ask a question, to the user on which task they would like to set a reminder
+	database.GetTop10Tasks()
+	//ask a question, to the user on which task they would like to set a reminder against
 	//then ask to set a date of the reminder
 	//then insert into database
 	//return back to main()
