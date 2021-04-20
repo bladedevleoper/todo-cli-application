@@ -26,6 +26,22 @@ var (
 
 const EMPTY = "Nothing has been enetered"
 
+//will initialise the dynamically mapped clear functions
+func init() {
+	clear = make(map[string]func()) //initialise it
+	clear["linux"] = func() {
+		cmd := exec.Command("clear")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+	}
+
+	clear["windows"] = func() {
+		cmd := exec.Command("cmd", "/c", "cls")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+	}
+}
+
 //TODO: Set up database schema for todo app (done)
 //TODO: Set variables for user to input (done)
 //TODO: Insert what the user has entered into the database with insert statement (done)
@@ -57,22 +73,6 @@ func main() {
 
 		//will handle the selected
 		handleChosenSelection(selection)
-	}
-}
-
-//will initialise the dynamically mapped clear functions
-func init() {
-	clear = make(map[string]func()) //initialise it
-	clear["linux"] = func() {
-		cmd := exec.Command("clear")
-		cmd.Stdout = os.Stdout
-		cmd.Run()
-	}
-
-	clear["windows"] = func() {
-		cmd := exec.Command("cmd", "/c", "cls")
-		cmd.Stdout = os.Stdout
-		cmd.Run()
 	}
 }
 
