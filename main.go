@@ -11,6 +11,7 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const (
@@ -46,8 +47,8 @@ func init() {
 //TODO: Set variables for user to input (done)
 //TODO: Insert what the user has entered into the database with insert statement (done)
 //TODO: Login before we access the todo app? (maybe??)
-//TODO: display all tasks
-//TODO: allow user to set a reminder on a task
+//TODO: display top 10 tasks (done)
+//TODO: allow user to set a reminder on a task (done)
 //TODO: set task to completed
 func main() {
 
@@ -138,7 +139,23 @@ func callAddReminder() {
 	//display top 10 recent tasks
 	database.GetTop10Tasks()
 	//ask a question, to the user on which task they would like to set a reminder against
-	//then ask to set a date of the reminder
-	//then insert into database
-	//return back to main()
+	fmt.Println("Which task ID would you like to set a reminder for? example: (ID: 1 - task: some task -  date_created: 01-01-2015)")
+	reader := bufio.NewReader(os.Stdin)
+	text, _ := reader.ReadString('\n')
+	text = strings.Replace(text, "\r\n", "", -1)
+	id, err := strconv.Atoi(text)
+	if err != nil {
+		panic("could not convert")
+	}
+
+	fmt.Printf("You have selected ID %v, what date would you like to set a reminder for ?", id)
+	date, _ := reader.ReadString('\n')
+
+	if date == "" {
+		panic("A date is required")
+	}
+
+	database.AddReminder(id, date)
+	time.Sleep(2 * time.Second)
+	main()
 }
