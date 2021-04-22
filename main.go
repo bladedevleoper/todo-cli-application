@@ -3,7 +3,10 @@ package main
 import (
 	//"fmt"
 	"fmt"
+
 	"github.com/bladedevleoper/go-cli-app/database"
+	"github.com/bladedevleoper/go-cli-app/models"
+
 	//"github.com/bladedevleoper/go-cli-app/handler"
 	"bufio"
 	"os"
@@ -98,7 +101,7 @@ func callAddTask() {
 	text = strings.Replace(text, "\r\n", "", -1)
 	for {
 		if text != "" {
-			database.InsertIntoTodo(text)
+			models.InsertTask(text) //database.InsertIntoTodo(text)
 			fmt.Println("Item added")
 			callAddTask()
 		} else {
@@ -137,7 +140,7 @@ func handleChosenSelection(selected string) {
 //will set a reminder against a task
 func callAddReminder() {
 	//display top 10 recent tasks
-	database.GetTop10Tasks()
+	models.GetTop10Tasks()
 	//ask a question, to the user on which task they would like to set a reminder against
 	fmt.Println("Which task ID would you like to set a reminder for? example: (ID: 1 - task: some task -  date_created: 01-01-2015)")
 	reader := bufio.NewReader(os.Stdin)
