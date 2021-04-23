@@ -6,3 +6,5 @@ To get started, clone the following repo: https://github.com/bladedevleoper/todo
 <code>cd</code> to where you have cloned the repo. Then in the terminal: <code>go build</code>
 
 Then run <code>./go-cli-app.exe</code>
+
+
