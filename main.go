@@ -3,8 +3,6 @@ package main
 import (
 	//"fmt"
 	"fmt"
-
-	"github.com/bladedevleoper/go-cli-app/database"
 	"github.com/bladedevleoper/go-cli-app/models"
 
 	//"github.com/bladedevleoper/go-cli-app/handler"
@@ -158,7 +156,7 @@ func callAddReminder() {
 		panic("A date is required")
 	}
 
-	database.AddReminder(id, date)
+	models.AddReminder(id, date)
 	time.Sleep(2 * time.Second)
 	main()
 }
