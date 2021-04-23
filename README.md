@@ -1,4 +1,4 @@
-#GO CLI APP
+<h1></h1>GO CLI APP</h1>
 This is a basic CLI App that records tasks and allows you to set reminders of when you want to get reminders
 
 To get started, clone the following repo: https://github.com/bladedevleoper/todo-cli-application.git
