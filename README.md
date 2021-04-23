@@ -3,4 +3,6 @@ This is a basic CLI App that records tasks and allows you to set reminders of wh
 
 To get started, clone the following repo: https://github.com/bladedevleoper/todo-cli-application.git
 
-cd into where you have cloned this repo. Then in the terminal: <code>go build</code>
+<code>cd</code> to where you have cloned the repo. Then in the terminal: <code>go build</code>
+
+Then run <code>./go-cli-app.exe</code>
