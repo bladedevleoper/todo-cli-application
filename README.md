@@ -7,5 +7,4 @@ To get started, clone the following repo: https://github.com/bladedevleoper/todo
 
 Then run <code>./go-cli-app.exe</code>
 
-
 ![image](https://user-images.githubusercontent.com/37089123/115926907-82f59f80-a47b-11eb-8325-6e3bf5422028.png)
